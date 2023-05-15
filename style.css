@@ -1,0 +1,50 @@
+/* Body */
+
+body {
+    background: rgb(53, 53, 53);
+    color: white;
+    font-family: fira code, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body .title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+body .wgdesc {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Banner */
+
+header {
+    background-color: white;
+    background-image: url(images/wglogobanner.png);
+    background-size: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 10px 210px;
+    text-align: left;
+}
+
+header .logo a {
+    background-image: url(images/wglogo.png);
+    background-size: 64px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 64px;
+    position: relative;
+    text-indent: -9999999px;
+    width: 64px;
+}
+
+/* Navigation */
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
