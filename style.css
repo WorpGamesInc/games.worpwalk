@@ -20,17 +20,6 @@ body .wgdesc {
     text-align: center;
 }
 
-/* Banner */
-
-header {
-    background-color: white;
-    background-image: url(images/wglogobanner.png);
-    background-size: 95%;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px 10px 210px;
-    text-align: left;
-}
 
 header .logo a {
     background-image: url(images/wglogo.png);
