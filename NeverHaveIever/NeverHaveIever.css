@@ -1,0 +1,11 @@
+/* Body */
+
+body {
+    background: rgb(53, 53, 53);
+    background-image: url(/images/tileBG.png);
+    background-size: 6.25%;
+    color: white;
+    font-family: fira code, sans-serif;
+    margin: 0;
+    padding: 0;
+}
