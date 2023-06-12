@@ -1,2 +1,2 @@
 # worpgames
- Worp Games Inc.
+ Worp Games Incorporated
