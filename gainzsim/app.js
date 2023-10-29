@@ -10,6 +10,10 @@ function clickGains() {
 
       gainNumber++;
       gainCount.textContent = gainNumber;
+
+      if (gainNumber > 14.1) {
+        document.getElementById("confidence").style.display = "block";
+      }
 };
 
 function clickResetGame() {
