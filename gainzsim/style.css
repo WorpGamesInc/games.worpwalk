@@ -5,13 +5,15 @@ canvas {
 }
 
 .gains {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     position: absolute; top:19%; left:27%;
     background-color: blue;
+    text-align: center;
 }
 
 .gainsCounter {
     position: absolute; top:19%; left:35%;
     
 }
+

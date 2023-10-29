@@ -1,7 +1,7 @@
-function clickFlappybird() {
-    window.location.href = 'worpwalk.com';
+function clickFlappyBird() {
+    window.location.href = '/flappybird';
 }
 
-function clickNHIE() {
-    window.location.href = 'https://games.worpwalk.com/NeverHaveIever/';
+function clickGainzSimulator() {
+    window.location.href = '/gainzsim';
 }
