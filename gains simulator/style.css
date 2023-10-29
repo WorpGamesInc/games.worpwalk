@@ -1,0 +1,17 @@
+canvas {
+    margin-top: 7%;
+    margin-left: 25%;
+    background-color: rgb(235, 235, 235);
+}
+
+.gains {
+    height: 50px;
+    width: 50px;
+    position: absolute; top:19%; left:27%;
+    background-color: blue;
+}
+
+.gainsCounter {
+    position: absolute; top:19%; left:35%;
+    
+}

@@ -32,3 +32,24 @@ header .logo a {
     width: 64px;
 }
 
+/* game banners */
+
+.flappybird {
+    background-image: url(images/flappybird.png);
+    width: 479.25px;
+    height: 255px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+.neverhaveiever {
+    background-image: url(images/nhie.png);
+    width: 479.25px;
+    height: 255px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-left: 20px;
+}
