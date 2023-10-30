@@ -1,2 +1,2 @@
 # worpgames
- Worp Games Incorporated
+ just a silly little games website
