@@ -1,4 +1,5 @@
 let gainNumber = 0;
+let confidence = 0;
 let arms = 1;
 const gainCount = document.getElementById("gainCount");
 
@@ -16,15 +17,10 @@ function clickGains() {
         document.getElementById("confidence").style.display = "block";
       }
 
-      if (gainNumber > 99.1) {
+      if (gainNumber > 49.1) {
         document.getElementById("bothArms").style.display = "block";
       }
 };
-
-
-function clickReset() {
-  location.reload();
-}
 
 
 function clickConfidence() {
@@ -35,24 +31,39 @@ function clickConfidence() {
 
   else if (gainCount.textContent = gainNumber > 14.1) {
     gainCount.textContent = gainNumber = gainNumber - 15;
-
+    confidenceLevel.textContent = confidence = confidence + 1
       setInterval(function() {
         gainNumber++;
         gainCount.textContent = gainNumber;
-      }, 1000);
+      }, 5000);
     }
   }
 
 
   function clickBothArms() {
 
-    if (gainCount.textContent = gainNumber < 99.1) {
+
+    if (gainCount.textContent = gainNumber < 49.1) {
       gainCount.textContent = gainNumber;
     }
   
-    else if (gainCount.textContent = gainNumber > 99.1) {
-      gainCount.textContent = gainNumber = gainNumber - 100;
-  
-       arms = arms+2
+    else if (gainCount.textContent = gainNumber > 49.1) {
+      gainCount.textContent = gainNumber = gainNumber - 50;
+      arms = arms+1
+      armCount.textContent = arms;
       }
     }
+
+  
+  // function changeMode() {
+
+  //   if (document.body.style.backgroundColor == 'white') {
+  //     document.body.style.backgroundColor = 'black';
+  //     document.getElementById('Counters').style.color = 'white';
+  //   }
+
+  //   else if (document.body.style.backgroundColor == 'black') {
+  //     document.body.style.backgroundColor = 'white';
+  //     document.getElementById('Counters').style.color = 'black';
+  //   }
+  // }

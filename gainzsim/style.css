@@ -6,9 +6,9 @@
     text-align: center;
 }
 
-.gainsCounter {
+.Counters {
     position: absolute; top:19%; left:35%;
-    
+    display: block;
 }
 
 .buyConfidence {
