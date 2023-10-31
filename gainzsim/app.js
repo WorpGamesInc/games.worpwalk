@@ -15,10 +15,12 @@ function clickGains() {
 
       if (gainNumber > 14.1) {
         document.getElementById("confidence").style.display = "block";
+        document.getElementById("confidenceCounter").style.display = "block";
       }
 
       if (gainNumber > 49.1) {
         document.getElementById("bothArms").style.display = "block";
+        document.getElementById("armCounter").style.display = "block";
       }
 };
 
