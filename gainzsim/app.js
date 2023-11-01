@@ -1,6 +1,10 @@
 let gainNumber = 0;
 let confidence = 0;
 let arms = 1;
+let gymBuddies = 0;
+let armCost = 100;
+let confidenceCost = 15;
+let gymBuddyCost = 100;
 const gainCount = document.getElementById("gainCount");
 
 
@@ -18,22 +22,30 @@ function clickGains() {
         document.getElementById("confidenceCounter").style.display = "block";
       }
 
-      if (gainNumber > 49.1) {
+      if (gainNumber > 99.1) {
         document.getElementById("bothArms").style.display = "block";
         document.getElementById("armCounter").style.display = "block";
+      }
+
+      
+      if (gainNumber > 99.1) {
+        document.getElementById("gymBuddies").style.display = "block";
+        document.getElementById("gymBuddyCounter").style.display = "block";
       }
 };
 
 
 function clickConfidence() {
 
-  if (gainCount.textContent = gainNumber < 14.1) {
+  if (gainCount.textContent = gainNumber < confidenceCost) {
     gainCount.textContent = gainNumber;
   }
 
-  else if (gainCount.textContent = gainNumber > 14.1) {
-    gainCount.textContent = gainNumber = gainNumber - 15;
+  else if (gainCount.textContent = gainNumber > confidenceCost) {
+    gainCount.textContent = gainNumber = gainNumber - confidenceCost;
     confidenceLevel.textContent = confidence = confidence + 1
+    confidenceCost = confidenceCost = Math.ceil(confidenceCost*1.2);
+      confidenceCostCounter.textContent = confidenceCost;
       setInterval(function() {
         gainNumber++;
         gainCount.textContent = gainNumber;
@@ -45,27 +57,33 @@ function clickConfidence() {
   function clickBothArms() {
 
 
-    if (gainCount.textContent = gainNumber < 49.1) {
+    if (gainCount.textContent = gainNumber < armCost) {
       gainCount.textContent = gainNumber;
     }
   
-    else if (gainCount.textContent = gainNumber > 49.1) {
-      gainCount.textContent = gainNumber = gainNumber - 50;
+    else if (gainCount.textContent = gainNumber > armCost) {
+      gainCount.textContent = gainNumber = gainNumber - armCost;
+      armCost = armCost*2;
+      armCostCounter.textContent = armCost;
       arms = arms+1
       armCount.textContent = arms;
       }
     }
 
-  
-  // function changeMode() {
 
-  //   if (document.body.style.backgroundColor == 'white') {
-  //     document.body.style.backgroundColor = 'black';
-  //     document.getElementById('Counters').style.color = 'white';
-  //   }
+function clickGymBuddies() {
+  if (gainCount.textContent = gainNumber < gymBuddyCost) {
+    gainCount.textContent = gainNumber;
+  }
 
-  //   else if (document.body.style.backgroundColor == 'black') {
-  //     document.body.style.backgroundColor = 'white';
-  //     document.getElementById('Counters').style.color = 'black';
-  //   }
-  // }
+  else if (gainCount.textContent = gainNumber > gymBuddyCost) {
+    gainCount.textContent = gainNumber = gainNumber - gymBuddyCost;
+    gymBuddyCount.textContent = gymBuddies = gymBuddies + 1
+    gymBuddyCost = gymBuddyCost = Math.ceil(gymBuddyCost*1.2);
+      gymBuddyCostCounter.textContent = gymBuddyCost;
+      setInterval(function() {
+        gainNumber = gainNumber + 2;
+        gainCount.textContent = gainNumber;
+      }, 1000);
+    }
+  }
