@@ -12,12 +12,16 @@
         <div class="Counters">
             <p>Gainz: <label id="gainCount">0</label></p>
             <p id="confidenceCounter" style="display: none;">Confidence Level: <label id="confidenceLevel">0</label></p>
-            <p id="armCounter" style="display: none;">Arms: <label id="armCount">1</label></p>
             <p id="gymBuddyCounter" style="display: none;">Gym Buddies: <label id="gymBuddyCount">0</label></p>
+            <p id="armCounter" style="display: none;">Arms: <label id="armCount">1</label></p>
         </div>
+        <button class="openShopButton" onclick="openShop()" id="openShopButton">Open Shop</button>
+        <button class="closeShopButton" onclick="closeShop()" id="closeShopButton">Close Shop</button>
+        <div class="shop" id="shop">
     <button id="confidence" class="buyConfidence" onclick="clickConfidence()">Buy Confidence - <label id="confidenceCostCounter">15</label> Gainz</button>
-    <button id="bothArms" class="buyBothArms" onclick="clickBothArms()">Buy Another Arm - <label id="armCostCounter">100</label> Gainz</button>
-    <button id="gymBuddies" class="buyGymBuddies" onclick="clickGymBuddies()">Buy Gym Buddies - <label id="gymBuddyCostCounter">100</label> Gainz</button>
+    <button id="gymBuddies" class="buyGymBuddies" onclick="clickGymBuddies()">Buy Gym Buddies - <label id="gymBuddyCostCounter">50</label> Gainz</button>
+    <button id="addArm" class="buyAddArm" onclick="clickAddArm()">Buy Another Arm - <label id="armCostCounter">100</label> Gainz</button>
+        </div>
 </body>
 <script src="app.js"></script> 
 </html>

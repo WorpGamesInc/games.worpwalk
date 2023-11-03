@@ -4,7 +4,7 @@ let arms = 1;
 let gymBuddies = 0;
 let armCost = 100;
 let confidenceCost = 15;
-let gymBuddyCost = 100;
+let gymBuddyCost = 50;
 const gainCount = document.getElementById("gainCount");
 
 
@@ -23,12 +23,12 @@ function clickGains() {
       }
 
       if (gainNumber > 99.1) {
-        document.getElementById("bothArms").style.display = "block";
+        document.getElementById("addArm").style.display = "block";
         document.getElementById("armCounter").style.display = "block";
       }
 
       
-      if (gainNumber > 99.1) {
+      if (gainNumber > 49.1) {
         document.getElementById("gymBuddies").style.display = "block";
         document.getElementById("gymBuddyCounter").style.display = "block";
       }
@@ -87,3 +87,32 @@ function clickGymBuddies() {
       }, 1000);
     }
   }
+  
+
+  function clickAddArm() {
+
+
+    if (gainCount.textContent = gainNumber < armCost) {
+      gainCount.textContent = gainNumber;
+    }
+  
+    else if (gainCount.textContent = gainNumber > armCost) {
+      gainCount.textContent = gainNumber = gainNumber - armCost;
+      armCost = armCost*2;
+      armCostCounter.textContent = armCost;
+      arms = arms+1
+      armCount.textContent = arms;
+      }
+    }
+
+    function openShop() {
+      document.getElementById("shop").style.display = "block";
+      document.getElementById("openShopButton").style.display = "none";
+      document.getElementById("closeShopButton").style.display = "block";
+    }
+
+    function closeShop() {
+      document.getElementById("shop").style.display = "none";
+      document.getElementById("openShopButton").style.display = "block";
+      document.getElementById("closeShopButton").style.display = "none";
+    }

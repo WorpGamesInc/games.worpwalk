@@ -16,12 +16,35 @@
     display: none;
 }
 
-.buyBothArms {
+.buyAddArm {
     margin-top: 5px;
     display: none;
 }
 
 .buyGymBuddies {
+    margin-top: 5px;
+    display: none;
+}
+
+.openShopButton {
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: block;
+}
+
+.closeShopButton {
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: none;
+}
+
+.shop {
     margin-top: 5px;
     display: none;
 }
