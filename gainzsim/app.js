@@ -25,7 +25,8 @@ function updateStuff() {
   }
 }
 
-setInterval(updateeStuff,1000);
+setInterval(updateStuff,1000);
+
 
 function clickGains() {
     document.querySelectorAll('button')[0].style.background = "darkblue";
