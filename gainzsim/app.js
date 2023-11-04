@@ -129,6 +129,6 @@ function clickGymBuddies() {
       gainCount.textContent = "get trolled!";
     }, 1000);
       var timer = setTimeout(function () {
-        window.close();
+        gainCount.textContent = gainNumber = gainNumber - 9999999;
     }, 3000);
       }
