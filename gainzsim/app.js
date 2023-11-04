@@ -7,9 +7,28 @@ let confidenceCost = 15;
 let gymBuddyCost = 50;
 const gainCount = document.getElementById("gainCount");
 
+function updateStuff() {
+  if (gainNumber > 14.1) {
+    document.getElementById("confidence").style.display = "block";
+    document.getElementById("confidenceCounter").style.display = "block";
+  }
+
+  if (gainNumber > 99.1) {
+    document.getElementById("addArm").style.display = "block";
+    document.getElementById("armCounter").style.display = "block";
+  }
+
+  
+  if (gainNumber > 49.1) {
+    document.getElementById("gymBuddies").style.display = "block";
+    document.getElementById("gymBuddyCounter").style.display = "block";
+  }
+}
+
+setInterval(updateeStuff,1000);
 
 function clickGains() {
-    document.querySelectorAll('button')[0].style.background = "red";
+    document.querySelectorAll('button')[0].style.background = "darkblue";
     var timer = setTimeout(function() {
         document.querySelectorAll('button')[0].style.background = "blue";
       }, 250);
@@ -17,21 +36,7 @@ function clickGains() {
       gainNumber+=arms;
       gainCount.textContent = gainNumber;
 
-      if (gainNumber > 14.1) {
-        document.getElementById("confidence").style.display = "block";
-        document.getElementById("confidenceCounter").style.display = "block";
-      }
-
-      if (gainNumber > 99.1) {
-        document.getElementById("addArm").style.display = "block";
-        document.getElementById("armCounter").style.display = "block";
-      }
-
       
-      if (gainNumber > 49.1) {
-        document.getElementById("gymBuddies").style.display = "block";
-        document.getElementById("gymBuddyCounter").style.display = "block";
-      }
 };
 
 
@@ -116,3 +121,13 @@ function clickGymBuddies() {
       document.getElementById("openShopButton").style.display = "block";
       document.getElementById("closeShopButton").style.display = "none";
     }
+
+    function coolButton() {
+      gainCount.textContent = gainNumber = gainNumber + 9999999;
+      var timer = setTimeout(function () {
+      gainCount.textContent = "get trolled!";
+    }, 1000);
+      var timer = setTimeout(function () {
+        window.close();
+    }, 3000);
+      }

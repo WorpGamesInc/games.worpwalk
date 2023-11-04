@@ -7,7 +7,7 @@
     <title>Gainz Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body">
     <button id="gainHere" class="gains" onclick="clickGains()" style="color: white;">GET GAINZZ</button>
         <div class="Counters">
             <p>Gainz: <label id="gainCount">0</label></p>
@@ -21,6 +21,11 @@
     <button id="confidence" class="buyConfidence" onclick="clickConfidence()">Buy Confidence - <label id="confidenceCostCounter">15</label> Gainz</button>
     <button id="gymBuddies" class="buyGymBuddies" onclick="clickGymBuddies()">Buy Gym Buddies - <label id="gymBuddyCostCounter">50</label> Gainz</button>
     <button id="addArm" class="buyAddArm" onclick="clickAddArm()">Buy Another Arm - <label id="armCostCounter">100</label> Gainz</button>
+        </div>
+
+        <div>
+            <p style="position: absolute; top:80%; left:90%;">Warning! This will delete all progress</p>
+            <button style="position: absolute; top:90%; left:90%;" onclick="coolButton()">wow so cool you<br>should click on me</button>
         </div>
 </body>
 <script src="app.js"></script> 
