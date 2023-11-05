@@ -1,4 +1,4 @@
-let numValue = 0;
+let numValue = 1;
 
 function clickNum() {
     if (numValue < 11) {
