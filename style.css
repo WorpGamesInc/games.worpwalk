@@ -38,22 +38,12 @@ ul {
 
 /* game banners */
 
-.flappybird {
-    background-image: url(images/flappybird.png);
+button {
     width: 479.25px;
     height: 255px;
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 20px;
     margin-left: 20px;
-}
-
-.gainzsimulator {
-    background-image: url(images/gainzsim.png);
-    width: 479.25px;
-    height: 255px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    margin-left: 20px;
+    border: none;
 }

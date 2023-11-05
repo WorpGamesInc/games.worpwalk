@@ -8,5 +8,10 @@ function clickNum() {
 
     if (numValue > 10) {
     document.getElementById('everything').style.display = 'none';
+    document.getElementById('everythingElse').style.display = 'block';
     }
+}
+
+function home() {
+    window.location.href = '/';
 }

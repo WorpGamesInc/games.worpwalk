@@ -5,7 +5,6 @@ let gymBuddies = 0;
 let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
-const gainCount = document.getElementById("gainCount");
 
 function updateStuff() {
   if (gainNumber > 14.1) {
@@ -122,3 +121,15 @@ function clickGymBuddies() {
       document.getElementById("openShopButton").style.display = "block";
       document.getElementById("closeShopButton").style.display = "none";
     }
+
+
+const savedGainNumber = gainCount;
+const gainCount = document.querySelector('.gainCount');
+const saveButton = document.getElementById('.saveButton');
+const storedGainNumber = localStorage.getItem('savedGainNumber');
+
+const saveGame = () => {
+  localStorage.setItem('savedGainNumber', gainCount.textContent);
+}
+
+document.getElementById('saveButton').addEventListener('click', saveGame);
