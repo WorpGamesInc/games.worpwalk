@@ -43,11 +43,11 @@ function clickGains() {
 
 function clickConfidence() {
 
-  if (gainCount.textContent = gainNumber < confidenceCost) {
+  if (gainCount.textContent = gainNumber < confidenceCost-.1) {
     gainCount.textContent = gainNumber;
   }
 
-  else if (gainCount.textContent = gainNumber > confidenceCost) {
+  else if (gainCount.textContent = gainNumber > confidenceCost-.1) {
     gainCount.textContent = gainNumber = gainNumber - confidenceCost;
     confidenceLevel.textContent = confidence = confidence + 1
     confidenceCost = confidenceCost = Math.ceil(confidenceCost*1.2);
@@ -63,11 +63,11 @@ function clickConfidence() {
   function clickBothArms() {
 
 
-    if (gainCount.textContent = gainNumber < armCost) {
+    if (gainCount.textContent = gainNumber < armCost-.1) {
       gainCount.textContent = gainNumber;
     }
   
-    else if (gainCount.textContent = gainNumber > armCost) {
+    else if (gainCount.textContent = gainNumber > armCost-.1) {
       gainCount.textContent = gainNumber = gainNumber - armCost;
       armCost = armCost*2;
       armCostCounter.textContent = armCost;
@@ -78,11 +78,11 @@ function clickConfidence() {
 
 
 function clickGymBuddies() {
-  if (gainCount.textContent = gainNumber < gymBuddyCost) {
+  if (gainCount.textContent = gainNumber < gymBuddyCost-.1) {
     gainCount.textContent = gainNumber;
   }
 
-  else if (gainCount.textContent = gainNumber > gymBuddyCost) {
+  else if (gainCount.textContent = gainNumber > gymBuddyCost-.1) {
     gainCount.textContent = gainNumber = gainNumber - gymBuddyCost;
     gymBuddyCount.textContent = gymBuddies = gymBuddies + 1
     gymBuddyCost = gymBuddyCost = Math.ceil(gymBuddyCost*1.2);
@@ -122,13 +122,3 @@ function clickGymBuddies() {
       document.getElementById("openShopButton").style.display = "block";
       document.getElementById("closeShopButton").style.display = "none";
     }
-
-    function coolButton() {
-      gainCount.textContent = gainNumber = gainNumber + 9999999;
-      var timer = setTimeout(function () {
-      gainCount.textContent = "get trolled!";
-    }, 1000);
-      var timer = setTimeout(function () {
-        gainCount.textContent = gainNumber = gainNumber - 9999999;
-    }, 3000);
-      }

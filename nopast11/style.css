@@ -1,0 +1,22 @@
+div {
+    display: block;
+    color: white;
+    font-family: fira code, sans-serif;
+}
+
+body {
+    background-image: url(/images/tileBG.png);
+    background-size: 6.25%;
+}
+
+body .title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+button {
+    color: white;
+    font-family: fira code, sans-serif;
+    font-size: 4rem;
+    
+}
