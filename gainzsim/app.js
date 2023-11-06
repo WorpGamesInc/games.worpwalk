@@ -39,6 +39,7 @@ function clickGains() {
       
 };
 
+// shop items 
 
 function clickConfidence() {
 
@@ -110,6 +111,8 @@ function clickGymBuddies() {
       }
     }
 
+// Shop Functions
+
     function openShop() {
       document.getElementById("shop").style.display = "block";
       document.getElementById("openShopButton").style.display = "none";
@@ -122,14 +125,37 @@ function clickGymBuddies() {
       document.getElementById("closeShopButton").style.display = "none";
     }
 
+// LocalStorage implementation
+// const storedGainCount = localStorage.getItem('gainCount');
+// const storedConfidenceLvl = localStorage.getItem('confidenceLevel');
 
-const savedGainNumber = gainCount;
-const gainCount = document.querySelector('.gainCount');
-const saveButton = document.getElementById('.saveButton');
-const storedGainNumber = localStorage.getItem('savedGainNumber');
+// if (storedGainCount !== null) {
+//   gainNumber = parseInt(storedGainCount);
+// } else {
+//   gainNumber = 0;
+// }
 
-const saveGame = () => {
-  localStorage.setItem('savedGainNumber', gainCount.textContent);
-}
+// if (storedConfidenceLvl !== null) {
+//   confidenceLevel = parseInt(storedConfidenceLvl);
+// } else {
+//   confidenceLevel = 0;
+// }
 
-document.getElementById('saveButton').addEventListener('click', saveGame);
+// const gainCount = document.querySelector('.gainCount');
+// const confidenceLevel = document.getElementById('confidenceLvl');
+
+// gainCount.textContent = gainNumber;
+// confidenceLevel.textContent = confidenceLevel;
+
+// const saveButton = document.querySelector('.saveButton');
+
+// const saveGame = () => {
+//   gainNumber = parseInt(gainCount.textContent);
+//   confidenceLevel = parseInt(confidenceLevel.textContent);
+  
+//   localStorage.setItem('gainCount', gainNumber);
+//   localStorage.setItem('confidenceLvl', confidenceLevel);
+// }
+
+// confidenceLevel.textContent = confidenceLevel;
+// saveButton.addEventListener('click', saveGame);
