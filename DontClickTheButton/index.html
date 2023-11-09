@@ -4,20 +4,30 @@
     body {
         background-image: url(/images/tileBG.png);
         background-size: 6.25%;
+        color: white;
+        font-family: fira code, sans-serif;
+        text-align:center;
     }
 </style>
 
 <head>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/images/favicon.png"/>
     <link rel="stylesheet" href="style.css">
     <title>Don't Press The Button</title>
 </head>
 
 <body>
+    <div id="buttonShown">
     <button style="position:absolute;top:25%;left:30%;background-color:rgba(0, 0, 0, 0);border-width:0px;"
         onclick="pressButton()"><img style="height:250px;" src="/DontClickTheButton/img/buttonUnpressed.png"
             alt="Unpressed button" id="buttonImg"></button>
-</body>
+    </div>
+    <div id="buttonHidden" style="display: none;">
+        <h1>Hey, why did you click the button, not cool man (Or woman or any gender you identify with)</h1>
+        <h2 id="goAhead" style="display: none;">Just don't do it again, here's a button to go back to NOT pressing the button</h2>
+        <button id="backButton" style="display:none;position:absolute;top:45%;left:45%;height:100px;width:100px;" onclick="goBack()">Go Back</button>
+    </div>
+        </body>
 <script src="app.js"></script>
 
 </html>
