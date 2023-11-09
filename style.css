@@ -39,11 +39,11 @@ ul {
 /* game banners */
 
 button {
-    width: 479.25px;
-    height: 255px;
+    width: 455.25px;
+    height: 230px;
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 5px;
     border: none;
 }
