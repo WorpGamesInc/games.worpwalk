@@ -21,3 +21,20 @@ function goBack() {
     document.getElementById('goAhead').style.display = 'none';
     document.getElementById('buttonShown').style.display = 'block';
 }
+
+
+function after30secs() {
+  document.getElementById('topText').textContent = 'Fuck you';
+  var timer = setTimeout(function() {
+    document.getElementById('topText').textContent = "I'm pressing it for you.";
+  }, 1000);
+  var timer = setTimeout(function() {
+  pressButton()
+  }, 2000);
+  var timer = setTimeout(function() {
+    document.getElementById('topText').textContent = "DO NOT CLICK!!!";
+    }, 2000);
+}
+
+setTimeout(after30secs, 30000);
+
