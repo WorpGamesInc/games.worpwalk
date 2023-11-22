@@ -9,3 +9,6 @@ function clickNoPast11() {
 function clickDCTB() {
     window.location.href = '/DontClickTheButton';
 }
+function clickCTB() {
+    window.location.href = '/ClickTheButton';
+}
