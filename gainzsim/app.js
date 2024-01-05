@@ -6,8 +6,14 @@ let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
 
+if (!localStorage.alertSent) {
+  localStorage.setItem('alertSent', "false");
+}
+
+// automatic stuff
+
 function updateStuff() {
-  if (gainNumber > 14.1) {
+  if (gainNumber > 14.1 || localStorage.confidenceLvl) {
     document.getElementById("confidence").style.display = "block";
     document.getElementById("confidenceCounter").style.display = "block";
   }
@@ -25,7 +31,9 @@ function updateStuff() {
 }
 
 setInterval(updateStuff,1000);
+setInterval(saveGame,300000)
 
+// Numbers go boom boom
 
 function clickGains() {
     document.querySelectorAll('button')[0].style.background = "darkblue";
@@ -52,13 +60,16 @@ function clickConfidence() {
     confidenceLevel.textContent = confidence = confidence + 1
     confidenceCost = confidenceCost = Math.ceil(confidenceCost*1.2);
       confidenceCostCounter.textContent = confidenceCost;
-      setInterval(function() {
-        gainNumber++;
-        gainCount.textContent = gainNumber;
-      }, 5000);
+    confidenceTimer();
     }
   }
 
+function confidenceTimer() {
+  setInterval(function() {
+    gainNumber+=confidence;
+    gainCount.textContent = gainNumber;
+  }, 5000);
+}
 
   function clickBothArms() {
 
@@ -125,37 +136,53 @@ function clickGymBuddies() {
       document.getElementById("closeShopButton").style.display = "none";
     }
 
-// LocalStorage implementation
-// const storedGainCount = localStorage.getItem('gainCount');
-// const storedConfidenceLvl = localStorage.getItem('confidenceLevel');
+// Save Button
 
-// if (storedGainCount !== null) {
-//   gainNumber = parseInt(storedGainCount);
-// } else {
-//   gainNumber = 0;
-// }
+function saveGame() {
+  alert("WARNING! This button does not save everything.")
+  if (localStorage.getItem("alertSent") == "false") {
+    alert("Game auto-saves every 5 minutes")
+    localStorage.setItem("gainz", gainNumber);
+    localStorage.setItem("confidenceLvl", confidence);
+    localStorage.setItem("confidenceCost", confidenceCost);
+    localStorage.setItem("alertSent", "true");
+  } else {
+    localStorage.setItem("gainz", gainNumber);
+    localStorage.setItem("confidenceLvl", confidence);
+    localStorage.setItem("confidenceCost", confidenceCost);
+  }
 
-// if (storedConfidenceLvl !== null) {
-//   confidenceLevel = parseInt(storedConfidenceLvl);
-// } else {
-//   confidenceLevel = 0;
-// }
+}
 
-// const gainCount = document.querySelector('.gainCount');
-// const confidenceLevel = document.getElementById('confidenceLvl');
 
-// gainCount.textContent = gainNumber;
-// confidenceLevel.textContent = confidenceLevel;
+// Load Button
+function loadGame() {
+ storedGainNumber = parseInt(localStorage.gainz);
+ storedConfidenceLvl = parseInt(localStorage.confidenceLvl);
+ storedConfidenceCost = parseInt(localStorage.confidenceCost);
+ gainNumber = storedGainNumber;
+ confidence = storedConfidenceLvl;
+ confidenceCost = storedConfidenceCost;
+ gainCount.textContent = gainNumber;
+ confidenceLevel.textContent = confidence;
+ confidenceCostCounter.textContent = confidenceCost;
+ confidenceTimer();
+}
 
-// const saveButton = document.querySelector('.saveButton');
-
-// const saveGame = () => {
-//   gainNumber = parseInt(gainCount.textContent);
-//   confidenceLevel = parseInt(confidenceLevel.textContent);
-  
-//   localStorage.setItem('gainCount', gainNumber);
-//   localStorage.setItem('confidenceLvl', confidenceLevel);
-// }
-
-// confidenceLevel.textContent = confidenceLevel;
-// saveButton.addEventListener('click', saveGame);
+// Wipe Button
+function wipeGame() {
+if (confirm("You sure buddy?")) {
+  localStorage.setItem("gainz", "0");
+  localStorage.setItem("confidenceLvl", "0");
+  localStorage.setItem("confidenceCost", "15");
+  storedGainNumber = parseInt(localStorage.gainz);
+  storedConfidenceLvl = parseInt(localStorage.confidenceLvl);
+  storedConfidenceCost = parseInt(localStorage.confidenceCost);
+  gainNumber = storedGainNumber;
+  confidence = storedConfidenceLvl;
+  confidenceCost = storedConfidenceCost;
+  gainCount.textContent = gainNumber;
+  confidenceLevel.textContent = confidence;
+  confidenceCostCounter.textContent = confidenceCost;
+}
+}
