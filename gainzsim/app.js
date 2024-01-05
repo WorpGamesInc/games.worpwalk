@@ -109,13 +109,13 @@ function clickGymBuddies() {
   function clickAddArm() {
 
 
-    if (gainCount.textContent = gainNumber < armCost) {
+    if (gainCount.textContent = gainNumber < armCost-.1) {
       gainCount.textContent = gainNumber;
     }
   
-    else if (gainCount.textContent = gainNumber > armCost) {
+    else if (gainCount.textContent = gainNumber > armCost-.1) {
       gainCount.textContent = gainNumber = gainNumber - armCost;
-      armCost = armCost*2;
+      armCost = armCost*1.5;
       armCostCounter.textContent = armCost;
       arms = arms+1
       armCount.textContent = arms;
@@ -139,9 +139,10 @@ function clickGymBuddies() {
 // Save Button
 
 function saveGame() {
-  alert("WARNING! This button does not save everything.")
+  
   if (localStorage.getItem("alertSent") == "false") {
     alert("Game auto-saves every 5 minutes")
+    alert("WARNING! This button does not save everything.")
     localStorage.setItem("gainz", gainNumber);
     localStorage.setItem("confidenceLvl", confidence);
     localStorage.setItem("confidenceCost", confidenceCost);
