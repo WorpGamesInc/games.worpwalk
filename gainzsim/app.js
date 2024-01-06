@@ -10,26 +10,6 @@ if (!localStorage.alertSent) {
 }
 
 // automatic stuff
-
-function updateStuff() {
-  if (gainNumber > 14.1 || localStorage.confidenceLvl) {
-    document.getElementById("confidence").style.display = "block";
-    document.getElementById("confidenceCounter").style.display = "block";
-  }
-
-  if (gainNumber > 99.1 || localStorage.armAmt) {
-    document.getElementById("addArm").style.display = "block";
-    document.getElementById("armCounter").style.display = "block";
-  }
-
-
-  if (gainNumber > 49.1 || localStorage.gymBuddyLvl) {
-    document.getElementById("gymBuddies").style.display = "block";
-    document.getElementById("gymBuddyCounter").style.display = "block";
-  }
-}
-
-setInterval(updateStuff, 1000);
 setInterval(saveGame, 300000)
 
 // Numbers go boom boom
@@ -125,20 +105,6 @@ function clickAddArm() {
   }
 }
 
-// Shop Functions
-
-function openShop() {
-  document.getElementById("shop").style.display = "block";
-  document.getElementById("openShopButton").style.display = "none";
-  document.getElementById("closeShopButton").style.display = "block";
-}
-
-function closeShop() {
-  document.getElementById("shop").style.display = "none";
-  document.getElementById("openShopButton").style.display = "block";
-  document.getElementById("closeShopButton").style.display = "none";
-}
-
 // Save Button
 
 function saveGame() {
@@ -152,6 +118,7 @@ function saveGame() {
     localStorage.setItem("gymBuddyCost", gymBuddyCost);
     localStorage.setItem("armAmt", arms);
     localStorage.setItem("armCost", armCost);
+    localStorage.removeItem("wiped");
     localStorage.setItem("alertSent", "true");
   } else {
     localStorage.setItem("gainz", gainNumber);
@@ -161,6 +128,7 @@ function saveGame() {
     localStorage.setItem("armAmt", arms);
     localStorage.setItem("armCost", armCost);
     localStorage.setItem("gymBuddyCost", gymBuddyCost);
+    localStorage.removeItem("wiped");
   }
 
 }
@@ -168,6 +136,7 @@ function saveGame() {
 
 // Load Button
 function loadGame() {
+  if (!localStorage.wiped) {
   storedGainNumber = parseInt(localStorage.gainz);
   storedConfidenceLvl = parseInt(localStorage.confidenceLvl);
   storedConfidenceCost = parseInt(localStorage.confidenceCost);
@@ -191,11 +160,27 @@ function loadGame() {
   armCostCounter.textContent = armCost;
   confidenceTimer();
   buddiesTimer();
+  }
 }
 
 // Wipe Button
 function wipeGame() {
   if (confirm("You sure buddy?")) {
     localStorage.clear();
+    localStorage.setItem("wiped", "true");
+    gainNumber = 0;
+    confidence = 0;
+    confidenceCost = 15;
+    gymBuddies = 0;
+    gymBuddyCost = 50;
+    arms = 1;
+    armCost = 100;
+    gainCount.textContent = gainNumber;
+    confidenceLevel.textContent = confidence;
+    confidenceCostCounter.textContent = confidenceCost;
+    gymBuddyCount.textContent = gymBuddies;
+    gymBuddyCostCounter.textContent = gymBuddyCost;
+    armCount.textContent = arms;
+    armCostCounter.textContent = armCost;
   }
 }
