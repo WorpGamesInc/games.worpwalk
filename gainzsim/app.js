@@ -5,6 +5,7 @@ let gymBuddies = 0;
 let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
+localStorage.setItem("wiped", "false");
 if (!localStorage.alertSent) {
   localStorage.setItem('alertSent', "false");
 }
