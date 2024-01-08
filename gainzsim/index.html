@@ -2,33 +2,40 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Gainz Simulator</title>
-    <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+        <title>Gainz Simulator</title>
+        <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="body">
-    <button id="gainHere" class="gains" onclick="clickGains()" style="color: white;">GET GAINZZ</button>
-    <div class="Counters">
-        <p>You have <label class="gainCount" id="gainCount">0</label> gainz.</p>
-        <p id="confidenceCounter" style="display: block;">Confidence Level: <label class="confidenceLevel"
-                id="confidenceLevel">0</label></p>
-        <p id="gymBuddyCounter" style="display: block;">Gym Buddies: <label id="gymBuddyCount">0</label></p>
-        <p id="armCounter" style="display: block;">Arms: <label id="armCount">1</label></p>
-        <div class="SLWbuttons">
-                <button id="saveButton" onclick="saveGame()"><p>Save Game!</p></button>
-                <button id="loadButton" onclick="loadGame()"><p>Load Save!</p></button>
-                <button id="wipeButton" onclick="wipeGame()"><p>Wipe Save!</p></button>
+        <h1>Version: Beta 1.0.0</h1>
+        <button id="gainHere" class="gains" onclick="clickGains()" style="color: white;">GET GAINZZ</button>
+        <div class="Counters">
+                <p>You have <label class="gainCount" id="gainCount">0</label> gainz.</p>
+                <p id="confidenceCounter" style="display: block;">Confidence Level: <label class="confidenceLevel"
+                                id="confidenceLevel">0</label></p>
+                <p id="gymBuddyCounter" style="display: block;">Gym Buddies: <label id="gymBuddyCount">0</label></p>
+                <p id="armCounter" style="display: block;">Arms: <label id="armCount">1</label></p>
+                <div class="SLWbuttons">
+                        <button id="saveButton" onclick="saveGame()">
+                                <p>Save Game!</p>
+                        </button>
+                        <button id="loadButton" onclick="loadGame()">
+                                <p>Load Save!</p>
+                        </button>
+                        <button id="wipeButton" onclick="wipeGame()">
+                                <p>Wipe Save!</p>
+                        </button>
+                </div>
         </div>
-    </div>
-    <div id="shop">
-        <button id="confidence" class="shopItem" onclick="clickConfidence()">Buy Confidence - <label
-                id="confidenceCostCounter">15</label> Gainz</button>
-        <button id="gymBuddies" class="shopItem" onclick="clickGymBuddies()">Buy Gym Buddies - <label
-                id="gymBuddyCostCounter">50</label> Gainz</button>
-        <button id="addArm" class="shopItem" onclick="clickAddArm()">Buy Another Arm - <label
-                id="armCostCounter">100</label> Gainz</button>
-    </div>
+        <div id="shop">
+                <button id="confidence" class="shopItem" onclick="clickConfidence()">Buy Confidence - <label
+                                id="confidenceCostCounter">15</label> Gainz</button>
+                <button id="gymBuddies" class="shopItem" onclick="clickGymBuddies()">Buy Gym Buddies - <label
+                                id="gymBuddyCostCounter">50</label> Gainz</button>
+                <button id="addArm" class="shopItem" onclick="clickAddArm()">Buy Another Arm - <label
+                                id="armCostCounter">100</label> Gainz</button>
+        </div>
 </body>
 <script src="app.js"></script>
 

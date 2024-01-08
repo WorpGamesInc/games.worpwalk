@@ -8,7 +8,8 @@ let gymBuddyCost = 50;
 if (!localStorage.alertSent) {
   localStorage.setItem('alertSent', "false");
 }
-
+loadGame();
+let x = 0;
 // automatic stuff
 setInterval(saveGame, 300000)
 
@@ -47,7 +48,7 @@ function confidenceTimer() {
   setInterval(function () {
     gainNumber += confidence;
     gainCount.textContent = gainNumber;
-  }, 5000);
+  }, 5000)
 }
 
 function clickBothArms() {
@@ -85,7 +86,7 @@ function buddiesTimer() {
   setInterval(function () {
     gainNumber +=gymBuddies;
     gainCount.textContent = gainNumber;
-  }, 1000);
+  }, 1000)
 }
 
 
@@ -137,20 +138,13 @@ function saveGame() {
 // Load Button
 function loadGame() {
   if (!localStorage.wiped) {
-  storedGainNumber = parseInt(localStorage.gainz);
-  storedConfidenceLvl = parseInt(localStorage.confidenceLvl);
-  storedConfidenceCost = parseInt(localStorage.confidenceCost);
-  storedGymBuddies = parseInt(localStorage.gymBuddyLvl);
-  storedGymBuddyCost = parseInt(localStorage.gymBuddyCost);
-  storedArmAmt = parseInt(localStorage.armAmt);
-  storedArmCost = parseInt(localStorage.armCost);
-  gainNumber = storedGainNumber;
-  confidence = storedConfidenceLvl;
-  confidenceCost = storedConfidenceCost;
-  gymBuddies = storedGymBuddies;
-  gymBuddyCost = storedGymBuddyCost;
-  arms = storedArmAmt;
-  armCost = storedArmCost;
+  gainNumber = parseInt(localStorage.gainz);
+  confidence = parseInt(localStorage.confidenceLvl);
+  confidenceCost = parseInt(localStorage.confidenceCost);
+  gymBuddies = parseInt(localStorage.gymBuddyLvl);
+  gymBuddyCost = parseInt(localStorage.gymBuddyCost);
+  arms = parseInt(localStorage.armAmt);
+  armCost = parseInt(localStorage.armCost);
   gainCount.textContent = gainNumber;
   confidenceLevel.textContent = confidence;
   confidenceCostCounter.textContent = confidenceCost;
