@@ -2,9 +2,11 @@ let gainNumber = 0;
 let confidence = 0;
 let arms = 1;
 let gymBuddies = 0;
+let personalTrainers = 0;
 let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
+let personalTrainerCost = 500;
 if (localStorage.gainz) {
   localStorage.setItem("wiped", "false");
 }
@@ -14,7 +16,7 @@ setInterval(saveGame, 300000)
 confidenceTimer();
 buddiesTimer();
 TenMinAchievement();
-
+trainersTimer();
 // Numbers go boom boom
 
 function clickGains() {
@@ -85,6 +87,26 @@ function clickGymBuddies() {
 function buddiesTimer() {
   setInterval(function () {
     gainNumber +=gymBuddies;
+    gainCount.textContent = gainNumber;
+  }, 1000)
+}
+
+function clickPersonalTrainers() {
+  if (gainCount.textContent = gainNumber < personalTrainerCost - .1) {
+    gainCount.textContent = gainNumber;
+  }
+
+  else if (gainCount.textContent = gainNumber > personalTrainerCost - .1) {
+    gainCount.textContent = gainNumber = gainNumber - personalTrainerCost;
+    trainerCount.textContent = personalTrainers = personalTrainers + 1
+    personalTrainerCost = personalTrainerCost = Math.ceil(personalTrainerCost * 1.2);
+    trainerCostCounter.textContent = personalTrainerCost;
+  }
+}
+
+function trainersTimer() {
+  setInterval(function () {
+    gainNumber +=personalTrainers*5;
     gainCount.textContent = gainNumber;
   }, 1000)
 }
@@ -187,7 +209,7 @@ function TenMinAchievement() {
 if (localStorage.getItem('10minAchievement') === "unsent") {
 setTimeout(function() {
   alert("Achievemnt unlocked! Play for 10 minutes: You're really a gamer aren't you?")
-}, 5000);
+}, 600000);
 localStorage.setItem('10minAchievement', "sent");
 }
 }
