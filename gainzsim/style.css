@@ -1,16 +1,15 @@
 .gains {
     height: 150px;
     width: 150px;
-    position: absolute; top:19%; left:27%;
     background-color: blue;
     text-align: center;
     font-size: 2vh;
     border: none;
+    color: white;
 }
 
 .Counters {
-    position: absolute; top:19%; left:35%;
-    display: block;
+    position: absolute; top:25%; left:35%;
 }
 
 .shopItem {

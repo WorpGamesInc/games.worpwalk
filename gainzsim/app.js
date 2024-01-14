@@ -5,10 +5,14 @@ let gymBuddies = 0;
 let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
-localStorage.setItem("wiped", "false");
+if (localStorage.gainz) {
+  localStorage.setItem("wiped", "false");
+}
+
 // automatic stuff
 setInterval(saveGame, 300000)
-
+confidenceTimer();
+buddiesTimer();
 // Numbers go boom boom
 
 function clickGains() {
@@ -36,7 +40,6 @@ function clickConfidence() {
     confidenceLevel.textContent = confidence = confidence + 1
     confidenceCost = confidenceCost = Math.ceil(confidenceCost * 1.2);
     confidenceCostCounter.textContent = confidenceCost;
-    confidenceTimer();
   }
 }
 
@@ -75,7 +78,6 @@ function clickGymBuddies() {
     gymBuddyCost = gymBuddyCost = Math.ceil(gymBuddyCost * 1.2);
     gymBuddyCostCounter.textContent = gymBuddyCost;
   }
-  buddiesTimer();
 }
 
 function buddiesTimer() {
@@ -115,7 +117,7 @@ function saveGame() {
     localStorage.setItem("gymBuddyCost", gymBuddyCost);
     localStorage.setItem("armAmt", arms);
     localStorage.setItem("armCost", armCost);
-    localStorage.removeItem("wiped");
+    localStorage.setItem('wiped', "false");
     localStorage.setItem("alertSent", "true");
   } else {
     localStorage.setItem("gainz", gainNumber);
@@ -125,7 +127,7 @@ function saveGame() {
     localStorage.setItem("armAmt", arms);
     localStorage.setItem("armCost", armCost);
     localStorage.setItem("gymBuddyCost", gymBuddyCost);
-    localStorage.removeItem("wiped");
+    localStorage.setItem('wiped', "false");
   }
 
 }
@@ -133,7 +135,7 @@ function saveGame() {
 
 // Load Button
 function loadGame() {
-  if (!localStorage.wiped) {
+  if (localStorage.wiped === "false") {
   gainNumber = parseInt(localStorage.gainz);
   confidence = parseInt(localStorage.confidenceLvl);
   confidenceCost = parseInt(localStorage.confidenceCost);
@@ -174,3 +176,13 @@ function wipeGame() {
     armCostCounter.textContent = armCost;
   }
 }
+
+// 10 Minute Easter Egg
+
+setTimeout(function() {
+  alert("Achievemnt unlocked! Play for 10 minutes: You're really a gamer aren't you?")
+}, 600000);
+x=0;
+setInterval(function() {
+  x+=1;
+  console.log(x)}, 1)
