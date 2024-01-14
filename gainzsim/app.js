@@ -13,6 +13,8 @@ if (localStorage.gainz) {
 setInterval(saveGame, 300000)
 confidenceTimer();
 buddiesTimer();
+TenMinAchievement();
+
 // Numbers go boom boom
 
 function clickGains() {
@@ -152,6 +154,7 @@ function loadGame() {
   armCostCounter.textContent = armCost;
   confidenceTimer();
   buddiesTimer();
+  TenMinAchievement();
   }
 }
 
@@ -178,11 +181,13 @@ function wipeGame() {
 }
 
 // 10 Minute Easter Egg
+localStorage.setItem('10minAchievement', "unsent");
 
+function TenMinAchievement() {
+if (localStorage.getItem('10minAchievement') === "unsent") {
 setTimeout(function() {
   alert("Achievemnt unlocked! Play for 10 minutes: You're really a gamer aren't you?")
-}, 600000);
-x=0;
-setInterval(function() {
-  x+=1;
-  console.log(x)}, 1)
+}, 5000);
+localStorage.setItem('10minAchievement', "sent");
+}
+}
