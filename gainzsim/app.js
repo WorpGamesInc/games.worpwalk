@@ -6,7 +6,7 @@ let personalTrainers = 0;
 let armCost = 100;
 let confidenceCost = 15;
 let gymBuddyCost = 50;
-let personalTrainerCost = 500;
+let trainerCost = 500;
 if (localStorage.gainz) {
   localStorage.setItem("wiped", "false");
 }
@@ -17,7 +17,7 @@ confidenceTimer();
 buddiesTimer();
 TenMinAchievement();
 trainersTimer();
-// Numbers go boom boom
+// main mechanic
 
 function clickGains() {
   document.querySelectorAll('button')[0].style.background = "darkblue";
@@ -92,15 +92,15 @@ function buddiesTimer() {
 }
 
 function clickPersonalTrainers() {
-  if (gainCount.textContent = gainNumber < personalTrainerCost - .1) {
+  if (gainCount.textContent = gainNumber < trainerCost - .1) {
     gainCount.textContent = gainNumber;
   }
 
-  else if (gainCount.textContent = gainNumber > personalTrainerCost - .1) {
-    gainCount.textContent = gainNumber = gainNumber - personalTrainerCost;
+  else if (gainCount.textContent = gainNumber > trainerCost - .1) {
+    gainCount.textContent = gainNumber = gainNumber - trainerCost;
     trainerCount.textContent = personalTrainers = personalTrainers + 1
-    personalTrainerCost = personalTrainerCost = Math.ceil(personalTrainerCost * 1.2);
-    trainerCostCounter.textContent = personalTrainerCost;
+    trainerCost = trainerCost = Math.ceil(trainerCost * 1.2);
+    trainerCostCounter.textContent = trainerCost;
   }
 }
 
@@ -130,30 +130,28 @@ function clickAddArm() {
 
 // Save Button
 
+if (!localStorage.alertSent) {
+  localStorage.setItem("alertSent", "false");
+}
+
 function saveGame() {
+
+  localStorage.setItem("gainz", gainNumber);
+  localStorage.setItem("confidenceLvl", confidence);
+  localStorage.setItem("confidenceCost", confidenceCost);
+  localStorage.setItem("gymBuddyLvl", gymBuddies);
+  localStorage.setItem("gymBuddyCost", gymBuddyCost);
+  localStorage.setItem("armAmt", arms);
+  localStorage.setItem("armCost", armCost);
+  localStorage.setItem("trainers", personalTrainers);
+  localStorage.setItem("trainerCost", trainerCost);
+  localStorage.setItem('wiped', "false");
 
   if (localStorage.getItem("alertSent") == "false") {
     alert("Game auto-saves every 5 minutes")
-    localStorage.setItem("gainz", gainNumber);
-    localStorage.setItem("confidenceLvl", confidence);
-    localStorage.setItem("confidenceCost", confidenceCost);
-    localStorage.setItem("gymBuddyLvl", gymBuddies);
-    localStorage.setItem("gymBuddyCost", gymBuddyCost);
-    localStorage.setItem("armAmt", arms);
-    localStorage.setItem("armCost", armCost);
-    localStorage.setItem('wiped', "false");
-    localStorage.setItem("alertSent", "true");
-  } else {
-    localStorage.setItem("gainz", gainNumber);
-    localStorage.setItem("confidenceLvl", confidence);
-    localStorage.setItem("confidenceCost", confidenceCost);
-    localStorage.setItem("gymBuddyLvl", gymBuddies);
-    localStorage.setItem("armAmt", arms);
-    localStorage.setItem("armCost", armCost);
-    localStorage.setItem("gymBuddyCost", gymBuddyCost);
-    localStorage.setItem('wiped', "false");
-  }
 
+    localStorage.setItem("alertSent", "true");
+  }
 }
 
 
@@ -167,6 +165,8 @@ function loadGame() {
   gymBuddyCost = parseInt(localStorage.gymBuddyCost);
   arms = parseInt(localStorage.armAmt);
   armCost = parseInt(localStorage.armCost);
+  personalTrainers = parseInt(localStorage.trainers);
+  trainerCost = parseInt(localStorage.trainerCost);
   gainCount.textContent = gainNumber;
   confidenceLevel.textContent = confidence;
   confidenceCostCounter.textContent = confidenceCost;
@@ -174,6 +174,8 @@ function loadGame() {
   gymBuddyCostCounter.textContent = gymBuddyCost;
   armCount.textContent = arms;
   armCostCounter.textContent = armCost;
+  trainerCount.textContent = personalTrainers;
+  trainerCostCounter.textContent = trainerCost;
   confidenceTimer();
   buddiesTimer();
   TenMinAchievement();
@@ -185,6 +187,8 @@ function wipeGame() {
   if (confirm("You sure buddy?")) {
     localStorage.clear();
     localStorage.setItem("wiped", "true");
+    localStorage.setItem("alertSent", "false");
+    localStorage.setItem('10minAchievement', "unsent");
     gainNumber = 0;
     confidence = 0;
     confidenceCost = 15;
@@ -192,6 +196,8 @@ function wipeGame() {
     gymBuddyCost = 50;
     arms = 1;
     armCost = 100;
+    personalTrainers = 0;
+    trainerCost = 500;
     gainCount.textContent = gainNumber;
     confidenceLevel.textContent = confidence;
     confidenceCostCounter.textContent = confidenceCost;
@@ -199,10 +205,13 @@ function wipeGame() {
     gymBuddyCostCounter.textContent = gymBuddyCost;
     armCount.textContent = arms;
     armCostCounter.textContent = armCost;
+    trainerCount.textContent = personalTrainers;
+    trainerCostCounter.textContent = trainerCost;
   }
 }
 
 // 10 Minute Easter Egg
+
 localStorage.setItem('10minAchievement', "unsent");
 
 function TenMinAchievement() {
