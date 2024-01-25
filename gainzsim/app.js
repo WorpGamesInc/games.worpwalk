@@ -232,7 +232,6 @@ function wipeGame() {
     gainMultiplier = 1;
     multiplierCost = 750;
     gainCount.textContent = gainNumber;
-
     confidenceLevel.textContent = confidence;
     confidenceCostCounter.textContent = confidenceCost;
 
