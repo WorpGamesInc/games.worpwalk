@@ -1,15 +1,22 @@
 .gains {
     height: 150px;
     width: 150px;
-    background-color: blue;
     text-align: center;
     font-size: 2vh;
     border: none;
-    color: white;
+}
+
+#armSprite {
+    height: 150px;
+    width: 150px;
+    z-index: -2;
 }
 
 .Counters {
-    position: absolute; top:25%; left:35%;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    z-index: -1;
 }
 
 .shopItem {
@@ -25,10 +32,24 @@
 }
 
 #body {
-    font-size: 2vh;   
+    font-size: 2vh;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.SLWbuttons button{
+.SLWbuttons button {
     font-size: 1.5vh;
+}
+
+#statistics {
+    height: 50vh;
+    width: 500px;
+    border: .5em solid #000000;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+}
+
+#statistics p {
+    margin-left: 4%;
+    display: block;
 }
