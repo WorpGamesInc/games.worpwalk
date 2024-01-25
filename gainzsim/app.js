@@ -27,10 +27,10 @@ function clickGains() {
   gainCount.textContent = gainNumber;
 };
 
-$("#gainHere").click(function(){
+$("#gainHere").click(function () {
   var armSprite = $("#armSprite");
-  armSprite.animate({height: '+=10%', width: '+=10%'}, 300);
-  armSprite.animate({height: '-=10%', width: '-=10%'}, 300);
+  armSprite.animate({ height: '+=10%', width: '+=10%' }, 300);
+  armSprite.animate({ height: '-=10%', width: '-=10%' }, 300);
 });
 // shop items 
 
@@ -232,7 +232,7 @@ function wipeGame() {
     gainMultiplier = 1;
     multiplierCost = 750;
     gainCount.textContent = gainNumber;
-    
+
     confidenceLevel.textContent = confidence;
     confidenceCostCounter.textContent = confidenceCost;
 
