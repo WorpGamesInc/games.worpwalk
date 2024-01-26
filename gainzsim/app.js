@@ -52,7 +52,7 @@ function clickConfidence() {
 
 function confidenceTimer() {
   setInterval(function () {
-    gainNumber + confidence;
+    gainNumber += confidence;
     gainCount.textContent = gainNumber;
   }, 5000)
 }
