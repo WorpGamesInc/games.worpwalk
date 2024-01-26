@@ -131,8 +131,9 @@ function clickMultiplier() {
     gainCount.textContent = gainNumber = gainNumber - multiplierCost;
     multiplierCost = multiplierCost * 2;
     multiplierCostCounter.textContent = multiplierCost;
-    gainMultiplier = gainMultiplier + 1
+    gainMultiplier += 1;
     multiplierLabel.textContent = gainMultiplier;
+    multiplierMobileLabel.textContent = gainMultiplier;
   }
 }
 // Save Button
