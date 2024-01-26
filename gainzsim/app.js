@@ -28,9 +28,11 @@ function clickGains() {
 };
 
 $("#gainHere").click(function () {
-  var armSprite = $("#armSprite");
+  if ($(':animated').length) {
+    return false;
+  } else {  var armSprite = $("#armSprite");
   armSprite.animate({ height: '+=10%', width: '+=10%' }, 300);
-  armSprite.animate({ height: '-=10%', width: '-=10%' }, 300);
+  armSprite.animate({ height: '-=10%', width: '-=10%' }, 300);}
 });
 // shop items 
 

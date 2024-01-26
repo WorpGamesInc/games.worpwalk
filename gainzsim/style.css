@@ -9,14 +9,21 @@
 #armSprite {
     height: 150px;
     width: 150px;
-    z-index: -2;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .Counters {
     position: absolute;
     top: 25%;
     left: 35%;
-    z-index: -1;
+    z-index: 0;
+}
+
+#mainButtonDiv {
+    position: absolute;
+    top: 12.5%;
+    left: 35%;
+    z-index: 1;
 }
 
 .shopItem {
@@ -42,14 +49,30 @@
 
 #statistics {
     height: 50vh;
-    width: 500px;
+    width: 25%;
     border: .5em solid #000000;
     position: absolute;
     top: 1%;
     right: 1%;
+    display: inline-block;
 }
 
 #statistics p {
     margin-left: 4%;
     display: block;
+}
+
+#mobileStat {
+    display: none;
+}
+
+@media screen and (max-device-width: 480px) 
+    and (orientation: portrait) {
+    #statistics {
+        display: none;
+    }
+
+    #mobileStat {
+        display: block;
+    }
 }
