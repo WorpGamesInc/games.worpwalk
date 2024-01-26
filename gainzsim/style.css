@@ -66,6 +66,10 @@
     display: none;
 }
 
+#gainHere {
+    background-color:#000000;
+}
+
 @media screen and (max-device-width: 480px) 
     and (orientation: portrait) {
     #statistics {
