@@ -15,11 +15,11 @@ if (localStorage.gainz) {
 }
 
 // automatic stuff
-setInterval(saveGame, 60000)
-confidenceTimer();
-buddiesTimer();
-TenMinAchievement();
-trainersTimer();
+setInterval(saveGame, 60000);
+setInterval(confidenceTimer, 5000);
+setInterval(buddiesTimer, 1000);
+setInterval(trainersTimer, 1000);
+TenMinAchievement(); 
 // main mechanic
 
 function clickGains() {
@@ -51,11 +51,9 @@ function clickConfidence() {
 }
 
 function confidenceTimer() {
-  setInterval(function () {
-    gainNumber += confidence;
+    gainNumber += confidence * gainMultiplier;
     gainCount.textContent = gainNumber;
-  }, 5000)
-}
+  }
 
 function clickBothArms() {
 
@@ -87,11 +85,9 @@ function clickGymBuddies() {
 }
 
 function buddiesTimer() {
-  setInterval(function () {
     gainNumber += gymBuddies * gainMultiplier; // gain multiplier multiplies the amount each auto gains
     gainCount.textContent = gainNumber;
-  }, 1000)
-}
+  }
 
 function clickPersonalTrainers() {
   if (gainCount.textContent = gainNumber < trainerCost - .1) {
@@ -107,16 +103,12 @@ function clickPersonalTrainers() {
 }
 
 function trainersTimer() {
-  setInterval(function () {
     gainNumber += personalTrainers * 5 * gainMultiplier;
     gainCount.textContent = gainNumber;
-  }, 1000)
-}
+  }
 
 
 function clickAddArm() {
-
-
   if (gainCount.textContent = gainNumber < armCost - .1) {
     gainCount.textContent = gainNumber;
   }
