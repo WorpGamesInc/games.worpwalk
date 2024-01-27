@@ -257,3 +257,4 @@ function TenMinAchievement() {
     localStorage.setItem('10minAchievement', "sent");
   }
 }
+

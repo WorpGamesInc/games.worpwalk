@@ -7,8 +7,8 @@
 }
 
 #armSprite {
-    height: 150px;
-    width: 150px;
+    height: 12.5vh;
+    width: 12.5vh;
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -78,5 +78,12 @@
 
     #mobileStat {
         display: block;
+    }
+}
+
+@media screen and (max-device-width: 3440px) {
+    #armSprite {
+        height: 13.5vh;
+        width: 13.5vh;
     }
 }
