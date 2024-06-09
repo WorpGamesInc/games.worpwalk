@@ -1,0 +1,9 @@
+.miningBlock {
+    position: fixed;
+    background-color: rgb(130, 130, 130);
+    width: 5vw;
+    height: 5vw;
+    top: 45vh;
+    left: 35vw;
+    cursor: pointer;
+  }

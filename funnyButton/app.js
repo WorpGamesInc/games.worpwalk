@@ -1,0 +1,1 @@
+$('#funnybutton').css('color', 'blue');

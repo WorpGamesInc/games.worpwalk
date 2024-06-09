@@ -1,0 +1,66 @@
+body {
+    margin: 0
+}
+
+#settings {
+    position: fixed;
+    height: 100vh;
+    width: 25vw;
+    background-color: green;
+}
+
+#corpMessagesDIV {
+    position: fixed;
+    height: 20vh;
+    width: 50vw;
+    background-color: lightblue;
+    left: 25vw;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#mainArea {
+    position: fixed;
+    height: 60vh;
+    width: 50vw;
+    background-color: red;
+    top: 20vh;
+    left: 25vw;
+}
+
+#dailies {
+    position: fixed;
+    height: 20vh;
+    width: 50vw;
+    background-color: rgb(213, 170, 255);
+    left: 25vw;
+    top: 80vh;
+}
+
+#notifications {
+    position: fixed;
+    height: 56vh;
+    width: 15vw;
+    background-color:rgb(27, 27, 27);
+    top: 22vh;
+    right: 26vw;
+    color: whitesmoke;
+}
+
+
+#shop {
+    position: fixed;
+    right: 0vw;
+    height: 50vh;
+    width: 25vw;
+    background-color: rgb(255, 151, 168);
+}
+
+#upgrades {
+    position: fixed;
+    right: 0vw;
+    bottom: 0vh;
+    height: 50vh;
+    width: 25vw;
+    background-color: purple;
+}
