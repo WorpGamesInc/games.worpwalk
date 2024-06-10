@@ -51,11 +51,9 @@ const encouragingWords = [
   "Prospect for opportunities on the horizon!"
 ];
 
-console.log(encouragingWords);
-
 
 var newCorpMessage = document.getElementById("corpMessage");
 
 setInterval(function() {
-    newCorpMessage.textContent = (encouragingWords[Math.floor(Math.random()*encouragingWords.length)]);
+    newCorpMessage.textContent = (encouragingWords[Math.floor(Math.random()*encouragingWords.length)])
 }, 15000);
