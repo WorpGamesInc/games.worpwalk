@@ -1,9 +1,26 @@
 .miningBlock {
     position: fixed;
-    background-color: rgb(130, 130, 130);
+    background-image: url(/sprites/coal_ore.png);
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: 5vw, 5vw;
     width: 5vw;
     height: 5vw;
-    top: 45vh;
+    top: 55vh;
     left: 35vw;
     cursor: pointer;
   }
+
+@media (max-width: 1920px) {
+  #notifications {
+    display: none;
+  }
+}
+
+  /* backgrounds */
+
+#mainArea {
+  background-image: url(/sprites/main_background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

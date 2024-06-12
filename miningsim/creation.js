@@ -1,6 +1,5 @@
 var miningBlock = document.createElement('div');
 miningBlock.className = 'miningBlock';
-miningBlock.style.backgroundColor = 'rgb(25, 25, 25)';
 document.body.appendChild(miningBlock); // create mining block
 
 // stats
