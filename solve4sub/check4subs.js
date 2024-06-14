@@ -11,8 +11,10 @@ let getCount = () => {
         })
         .then(data => {
             subCount.innerHTML = data["items"][0].statistics.subscriberCount;
+            viewCount.innerHTML = data["items"][0].statistics.viewCount;
+            videoCount.innerHTML = data["items"][0].statistics.videoCount;
             var newCount = data["items"][0].statistics.subscriberCount;
-            if (newCount != oldCount) {
+            if (newCount > oldCount) {
                 document.getElementById("solveScreen").style.display = "block";
                 alarm.play();
             }
