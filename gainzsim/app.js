@@ -1,3 +1,8 @@
+// Check for correct resolution (make sure to comment out in final releases).
+sizeCheck = setInterval(function () {
+  document.querySelector('#pageTitle').textContent = window.outerHeight + "," + window.outerWidth;
+}, 1000);
+
 let gainNumber = 0;
 let confidence = 0;
 let arms = 1;
@@ -14,26 +19,56 @@ if (localStorage.gainz) {
   localStorage.setItem("wiped", "false");
 }
 
-// automatic stuff
-setInterval(saveGame, 60000);
-setInterval(confidenceTimer, 5000);
-setInterval(buddiesTimer, 1000);
-setInterval(trainersTimer, 1000);
-TenMinAchievement(); 
-// main mechanic
-
-function clickGains() {
-  gainNumber += arms * gainMultiplier;
-  gainCount.textContent = gainNumber;
-};
-
-$("#gainHere").click(function () {
-  if ($(':animated').length) {
-    return false;
-  } else {  var armSprite = $("#armSprite");
-  armSprite.animate({ height: '+=10%', width: '+=10%' }, 300);
-  armSprite.animate({ height: '-=10%', width: '-=10%' }, 300);}
+// Gym Name
+if (!localStorage.getItem("StoredGymName")) {
+  localStorage.setItem("StoredGymName", "_____");
+  document.querySelector('#gymName').textContent = localStorage.StoredGymName;
+} else {
+  let gymName = localStorage.getItem("StoredGymName");
+  document.querySelector('#gymName').textContent = gymName
+  if (gymName == "The Creator") {
+    document.querySelector('#gymName').style.color = "gold";
+  } else if (gymName == "Donnie") {
+    document.querySelector('#gymName').style.color = "green";
+    alert("You have the name of my brother! I grant you a green name.")
+  } else {
+    document.querySelector('#gymName').style.color = "rgb(220, 224, 234)";
+  }
+}
+document.querySelector('#gymName').addEventListener("click", () => {
+  newGymName = prompt("What would you like to name your gym? ");
+  if (newGymName) {
+    document.querySelector('#gymName').textContent = newGymName;
+  }
+  if (newGymName == "The Creator") {
+    document.querySelector('#gymName').style.color = "gold";
+  } else if (newGymName == "Donnie") {
+    document.querySelector('#gymName').style.color = "green";
+    alert("You have the name of (The Creator) my brother! I grant you a green name.")
+  } else {
+    document.querySelector('#gymName').style.color = "rgb(220, 224, 234)";
+  }
+  localStorage.setItem('StoredGymName', newGymName);
 });
+
+
+// main mechanic
+// Clicking
+document.querySelector('#gainHere').addEventListener("click", () => {
+  gainNumber += arms * gainMultiplier;
+  gainCount.textContent = gainNumber.toFixed(2);
+});
+// Idling GPS
+setInterval(() => {
+  gainNumber += (((confidence / 10) + gymBuddies + (personalTrainers * 5)) * gainMultiplier) / 10;
+  gainCount.textContent = gainNumber.toFixed(2);
+}, 100)
+
+//Stats GPS
+setInterval(() => {
+let GPS = (((confidence / 10) + gymBuddies + (personalTrainers * 5)) * gainMultiplier)
+document.querySelector('#gps').textContent = GPS;
+}, 1000);
 // shop items 
 
 function clickConfidence() {
@@ -43,17 +78,12 @@ function clickConfidence() {
   }
 
   else if (gainCount.textContent = gainNumber > confidenceCost - .1) {
-    gainCount.textContent = gainNumber = gainNumber - confidenceCost;
-    confidenceLevel.textContent = confidence = confidence + 1
-    confidenceCost = confidenceCost = Math.ceil(confidenceCost * 1.2);
+    gainCount.textContent = gainNumber -= confidenceCost;
+    confidenceLevel.textContent = confidence += 1
+    confidenceCost = Math.ceil(confidenceCost * 1.2);
     confidenceCostCounter.textContent = confidenceCost;
   }
 }
-
-function confidenceTimer() {
-    gainNumber += confidence * gainMultiplier;
-    gainCount.textContent = gainNumber;
-  }
 
 function clickBothArms() {
 
@@ -84,10 +114,6 @@ function clickGymBuddies() {
   }
 }
 
-function buddiesTimer() {
-    gainNumber += gymBuddies * gainMultiplier; // gain multiplier multiplies the amount each auto gains
-    gainCount.textContent = gainNumber;
-  }
 
 function clickPersonalTrainers() {
   if (gainCount.textContent = gainNumber < trainerCost - .1) {
@@ -101,12 +127,6 @@ function clickPersonalTrainers() {
     trainerCostCounter.textContent = trainerCost;
   }
 }
-
-function trainersTimer() {
-    gainNumber += personalTrainers * 5 * gainMultiplier;
-    gainCount.textContent = gainNumber;
-  }
-
 
 function clickAddArm() {
   if (gainCount.textContent = gainNumber < armCost - .1) {
@@ -136,6 +156,7 @@ function clickMultiplier() {
     multiplierMobileLabel.textContent = gainMultiplier;
   }
 }
+
 // Save Button
 
 if (!localStorage.alertSent) {
@@ -143,7 +164,6 @@ if (!localStorage.alertSent) {
 }
 
 function saveGame() {
-
   localStorage.setItem("gainz", gainNumber);
 
   localStorage.setItem("confidenceLvl", confidence);
@@ -163,15 +183,21 @@ function saveGame() {
 
   localStorage.setItem('wiped', "false");
 
+  localStorage.setItem("gymName", gymName);
+
   if (localStorage.getItem("alertSent") == "false") {
     alert("Game auto-saves every minute")
-
-    localStorage.setItem("alertSent", "true");
   }
+  localStorage.setItem("alertSent", "true");
 }
+
+document.querySelector('#saveButton').addEventListener("click", () => {
+  saveGame();
+})
 
 
 // Load Button
+
 function loadGame() {
   if (localStorage.wiped === "false") {
     gainNumber = parseInt(localStorage.gainz);
@@ -202,14 +228,16 @@ function loadGame() {
     multiplierLabel.textContent = gainMultiplier;
     multiplierCostCounter.textContent = multiplierCost;
 
-    confidenceTimer();
-    buddiesTimer();
-    trainersTimer();
-    TenMinAchievement();
+    gymName = localStorage.gymName;
+    document.querySelector('#gymName').textContent = gymName
   }
 }
 
+document.querySelector('#loadButton').addEventListener("click", () => {
+  loadGame();
+})
 // Wipe Button
+
 function wipeGame() {
   if (confirm("You sure buddy?")) {
     localStorage.clear();
@@ -244,17 +272,9 @@ function wipeGame() {
   }
 }
 
-// 10 Minute Easter Egg
-if (!localStorage.tenMinAchievement) {
-  localStorage.setItem('tenMinAchievement', "unsent");
-}
+document.querySelector('#wipeButton').addEventListener("click", () => {
+  wipeGame();
+})
 
-function TenMinAchievement() {
-  if (localStorage.getItem('tenMinAchievement') === "unsent") {
-    setTimeout(function () {
-      alert("Achievemnt unlocked! Play for 10 minutes: You're really a gamer aren't you?")
-    }, 600000);
-    localStorage.setItem('10minAchievement', "sent");
-  }
-}
-
+// automatic stuff
+setInterval(saveGame, 60000);

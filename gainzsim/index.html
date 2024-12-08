@@ -3,52 +3,58 @@
 
 <head>
         <link rel="icon" type="image/png" href="img/favicon.png" />
-        <title>Gainz Simulator</title>
+        <title id="pageTitle">Gainz Simulator</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body id="body">
-        <h1>Version: Beta 1.1.20</h1>
-        <div id="mainButtonDiv"><button id="gainHere" class="gains" onclick="clickGains()"><img src="img/armSprite.png" alt="armSprite" id="armSprite"></button></div>
-        <div class="Counters">
-                <div style="display: block;">
-                        <p>You have <label class="gainCount" id="gainCount">0</label> gainz.</p>
-                        <p id="confidenceCounter" style="display: block;">Confidence Level: <label
-                                        class="confidenceLevel" id="confidenceLevel">0</label></p>
-                        <p id="gymBuddyCounter" style="display: block;">Gym Buddies: <label id="gymBuddyCount">0</label>
-                        </p>
-                        <p id="armCounter" style="display: block;">Arms: <label id="armCount">1</label></p>
-                        <p id="trainerCounter" style="display: block;">Personal Trainers: <label
-                                        id="trainerCount">0</label></p>
+<body>
+        <div class="header">
+                <h1 class="currentVersion">Version: Beta 1.1.20</h1>
+                <h1 style="display:flex;"><label id="gymName" style="display: flex;"></label>'s Gym</h1>
+                <a class="moreGamesButton" href="/">More games!</a>
+        </div>
+        <div class="main">
+                <div id="statistics">
+                        <p>Gainz Multiplier: <label id="multiplierLabel">1</label>x</p>
+                        <p id="confidenceCounter">Confidence Level: <label id="confidenceLevel">0</label></p>
+                        <p id="gymBuddyCounter">Gym Buddies: <label id="gymBuddyCount">0</label></p>
+                        <p id="armCounter">Arms: <label id="armCount">1</label></p>
+                        <p id="trainerCounter">Personal Trainers: <label id="trainerCount">0</label></p>
                         <p id="mobileStat">Gain Multiplier: <label id="multiplierMobileLabel">1</label></p>
-                </div>
-                <div class="SLWbuttons">
-                        <button id="saveButton" onclick="saveGame()">
+                        <p id="gainzPerSecond">Gainz Per Second: <label id="gps">0</label></p>
+                        <button id="saveButton" class="SLWButton">
                                 <p>Save Game!</p>
                         </button>
-                        <button id="loadButton" onclick="loadGame()">
-                                <p>Load Save!</p>
+                        <button id="loadButton" class="SLWButton">
+                                <p>Load Save From File</p>
                         </button>
-                        <button id="wipeButton" onclick="wipeGame()">
+                        <button id="wipeButton" class="SLWButton">
                                 <p>Wipe Save!</p>
                         </button>
+                        <button id="saveToFileButton" class="SLWButton">
+                                <p>Save to File!</p>
+                        </button>
+                        </button>
                 </div>
-        </div>
-        <div id="statistics">
-                <p>Gainz Multiplier: <label id="multiplierLabel">1</label>x</p>
-        </div>
-        <div id="shop">
-                <button id="confidence" class="shopItem" onclick="clickConfidence()">Buy Confidence - <label
-                                id="confidenceCostCounter">15</label> Gainz</button>
-                <button id="gymBuddies" class="shopItem" onclick="clickGymBuddies()">Buy Gym Buddies - <label
-                                id="gymBuddyCostCounter">50</label> Gainz</button>
-                <button id="addArm" class="shopItem" onclick="clickAddArm()">Buy Another Arm - <label
-                                id="armCostCounter">100</label> Gainz</button>
-                <button id="personalTrainers" class="shopItem" onclick="clickPersonalTrainers()">Buy Personal Trainer -
-                        <label id="trainerCostCounter">500</label> Gainz</button>
-                <button id="plusMultipier" class="shopItem" onclick="clickMultiplier()">+1 Gainz Multiplier - <label
-                                id="multiplierCostCounter">750</label> Gainz</button>
+                <div style="align-self: center;">
+                        <button id="gainHere" class="gains"><img src="img/armSprite.png" alt="armSprite"
+                                        id="armSprite"></button>
+                        <p>You have <label id="gainCount">0</label> gainz.</p>
+                </div>
+                <div id="shop">
+                        <button id="confidence" class="shopItem" onclick="clickConfidence()">Buy Confidence - <label
+                                        id="confidenceCostCounter">15</label> Gainz</button>
+                        <button id="gymBuddies" class="shopItem" onclick="clickGymBuddies()">Buy Gym Buddies - <label
+                                        id="gymBuddyCostCounter">50</label> Gainz</button>
+                        <button id="addArm" class="shopItem" onclick="clickAddArm()">Buy Another Arm - <label
+                                        id="armCostCounter">100</label> Gainz</button>
+                        <button id="personalTrainers" class="shopItem" onclick="clickPersonalTrainers()">Buy Personal
+                                Trainer -
+                                <label id="trainerCostCounter">500</label> Gainz</button>
+                        <button id="plusMultipier" class="shopItem" onclick="clickMultiplier()">+1 Gainz Multiplier -
+                                <label id="multiplierCostCounter">750</label> Gainz</button>
+                </div>
         </div>
 </body>
 <script src="app.js"></script>
