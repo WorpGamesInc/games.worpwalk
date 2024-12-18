@@ -54,21 +54,26 @@ document.querySelector('#gymName').addEventListener("click", () => {
 
 // main mechanic
 // Clicking
+
 document.querySelector('#gainHere').addEventListener("click", () => {
   gainNumber += arms * gainMultiplier;
   gainCount.textContent = gainNumber.toFixed(2);
 });
+
 // Idling GPS
+
 setInterval(() => {
   gainNumber += (((confidence / 10) + gymBuddies + (personalTrainers * 5)) * gainMultiplier) / 10;
   gainCount.textContent = gainNumber.toFixed(2);
 }, 100)
 
 //Stats GPS
+
 setInterval(() => {
 let GPS = (((confidence / 10) + gymBuddies + (personalTrainers * 5)) * gainMultiplier)
 document.querySelector('#gps').textContent = GPS;
 }, 1000);
+
 // shop items 
 
 function clickConfidence() {
@@ -79,7 +84,7 @@ function clickConfidence() {
 
   else if (gainCount.textContent = gainNumber > confidenceCost - .1) {
     gainCount.textContent = gainNumber -= confidenceCost;
-    confidenceLevel.textContent = confidence += 1
+    confidenceLevel.textContent = (confidence += 1) + " (" + (confidence / 5) + "g/s)";
     confidenceCost = Math.ceil(confidenceCost * 1.2);
     confidenceCostCounter.textContent = confidenceCost;
   }
@@ -108,7 +113,7 @@ function clickGymBuddies() {
 
   else if (gainCount.textContent = gainNumber > gymBuddyCost - .1) {
     gainCount.textContent = gainNumber = gainNumber - gymBuddyCost;
-    gymBuddyCount.textContent = gymBuddies = gymBuddies + 1
+    gymBuddyCount.textContent = (gymBuddies += 1) + " (" + (gymBuddies) + "g/s)";
     gymBuddyCost = gymBuddyCost = Math.ceil(gymBuddyCost * 1.2);
     gymBuddyCostCounter.textContent = gymBuddyCost;
   }
@@ -122,7 +127,7 @@ function clickPersonalTrainers() {
 
   else if (gainCount.textContent = gainNumber > trainerCost - .1) {
     gainCount.textContent = gainNumber = gainNumber - trainerCost;
-    trainerCount.textContent = personalTrainers = personalTrainers + 1
+    trainerCount.textContent = (personalTrainers += 1) + " (" + (personalTrainers * 5) + "g/s)";
     trainerCost = trainerCost = Math.ceil(trainerCost * 1.2);
     trainerCostCounter.textContent = trainerCost;
   }
@@ -205,12 +210,12 @@ function loadGame() {
 
     confidence = parseInt(localStorage.confidenceLvl);
     confidenceCost = parseInt(localStorage.confidenceCost);
-    confidenceLevel.textContent = confidence;
+    confidenceLevel.textContent = confidence + " (" + (confidence / 5) + "g/s)";
     confidenceCostCounter.textContent = confidenceCost;
 
     gymBuddies = parseInt(localStorage.gymBuddyLvl);
     gymBuddyCost = parseInt(localStorage.gymBuddyCost);
-    gymBuddyCount.textContent = gymBuddies;
+    gymBuddyCount.textContent = gymBuddies + " (" + (gymBuddies) + "g/s)";
     gymBuddyCostCounter.textContent = gymBuddyCost;
 
     arms = parseInt(localStorage.armAmt);
@@ -220,7 +225,7 @@ function loadGame() {
 
     personalTrainers = parseInt(localStorage.trainers);
     trainerCost = parseInt(localStorage.trainerCost);
-    trainerCount.textContent = personalTrainers;
+    trainerCount.textContent = personalTrainers + " (" + (confidence * 5) + "g/s)";
     trainerCostCounter.textContent = trainerCost;
 
     gainMultiplier = parseInt(localStorage.gainMultiplier);
@@ -277,4 +282,9 @@ document.querySelector('#wipeButton').addEventListener("click", () => {
 })
 
 // automatic stuff
+loadGame();
 setInterval(saveGame, 60000);
+
+
+// load game with tons of gainz
+gainNumber += 99999;
